@@ -18,6 +18,20 @@ export class ArticleController {
         }
     }
 
+    static async updateArticle(req:any, res:any) {
+        try {
+            const id = req.params.id;
+            const article = await Article.findOne({where: {id: id}});
+            if(!article) return res.status(401).json({message: "Article not found"})
+            await Article.update(id, req.body);
+            return res.json({message: "Article updated"})
+        } catch (error) {
+            return res.status(500).send({
+                message: "An unexpected error occurred while updating article"
+            });
+        }
+    }
+
     static async getArticles(req:any, res:any) {
         try {
             const articles = await Article.find();

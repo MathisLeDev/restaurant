@@ -25,6 +25,7 @@ router.get('/api/commandes/:id', commande_controller_1.CommandeController.getCom
 // Routes pour les articles
 router.get('/api/articles', article_controller_1.ArticleController.getArticles);
 router.post('/api/articles', article_controller_1.ArticleController.createArticle);
+router.put('/api/articles/:id', article_controller_1.ArticleController.updateArticle);
 router.get('/api/articles/:id', article_controller_1.ArticleController.getArticleById);
 // Routes pour les tables
 router.get('/api/tables', table_controller_1.TableController.getAll);
@@ -33,6 +34,8 @@ router.get('/api/tables/:id', table_controller_1.TableController.getTableById);
 // Routes pour les réservations
 router.get('/api/reservations', reservation_controller_1.ReservationController.getAll);
 router.post('/api/reservations', reservation_controller_1.ReservationController.create);
+router.put('/api/reservations/:id', reservation_controller_1.ReservationController.update);
+router.patch('/api/reservations/cancel/:id', reservation_controller_1.ReservationController.cancel);
 router.get('/api/reservations/:id', reservation_controller_1.ReservationController.getReservationById);
 // Routes pour les employés
 router.get('/api/employes', employe_controller_1.EmployeController.getAll);

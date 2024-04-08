@@ -30,6 +30,23 @@ class ArticleController {
             }
         });
     }
+    static updateArticle(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const id = req.params.id;
+                const article = yield article_entity_1.Article.findOne({ where: { id: id } });
+                if (!article)
+                    return res.status(401).json({ message: "Article not found" });
+                yield article_entity_1.Article.update(id, req.body);
+                return res.json({ message: "Article updated" });
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while updating article"
+                });
+            }
+        });
+    }
     static getArticles(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

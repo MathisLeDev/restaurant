@@ -1,5 +1,12 @@
 import {DataSource} from "typeorm";
 import {User} from "./entity/user";
+import {Article} from "./entity/article.entity";
+import {Client} from "./entity/client.entity";
+import {Commande} from "./entity/commande.entity";
+import {Employe} from "./entity/employe.entity";
+import {Reservation} from "./entity/reservation.entity";
+import {Stock} from "./entity/stock.entity";
+import {Table} from "./entity/table.entity";
 
 export const appDataSource = new DataSource({
     type: "postgres",
@@ -10,7 +17,7 @@ export const appDataSource = new DataSource({
     database: "postgres",
     synchronize: true,
     logging: true,
-    entities: [User],
+    entities: [User, Article, Client, Commande, Employe, Reservation, Stock, Table],
     subscribers: [],
     migrations: [],
 })

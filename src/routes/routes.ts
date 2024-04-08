@@ -3,6 +3,10 @@ import {UserController} from "../controllers/userController";
 
 const router = express.Router()
 
+router.get('/api/ping', (req, res) => {
+    res.send('pong')
+});
+
 router.get('/api/user', UserController.getUser);
 
 router.post('/api/user',  UserController.createUser);
